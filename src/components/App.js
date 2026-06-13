@@ -13,7 +13,11 @@ const App = () => {
   return (
     <div>
         <button onClick={()=>{setShow(true)}}>Show Modal</button>
-        {show && <Modal show={show} onClose={onClose} />}
+        {show && (
+  <Modal show={show} onClose={onClose}>
+    <p>This is the content of the modal.</p>
+  </Modal>
+)}
     </div>
   )
 }
