@@ -1,19 +1,20 @@
-import React from 'react'
-
+import React from "react";
 
 const Modal = ({ show, onClose, children }) => {
   if (!show) return null;
 
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="model-overlay" onClick={onClose}>
-      <div
-        className="model"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="model-overlay" onClick={handleOverlayClick}>
+      <div className="model">
         <button className="model-close" onClick={onClose}>
           Close
         </button>
-
         {children}
       </div>
     </div>
